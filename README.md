@@ -1,10 +1,9 @@
 # ngx-countrypicker
 
-[![Build Status](https://travis-ci.org/guillaume-ro-fr/ngx-country-picker.svg?branch=master)](https://travis-ci.org/guillaume-ro-fr/guillaume-ro-fr/ngx-country-picker)
+[![Build Status](https://travis-ci.org/guillaume-ro-fr/ngx-country-picker.svg?branch=master)](https://travis-ci.org/guillaume-ro-fr/ngx-country-picker)
 [![GitHub Downloads All Releases](https://img.shields.io/github/downloads/guillaume-ro-fr/ngx-country-picker/total.svg)](https://github.com/guillaume-ro-fr/ngx-country-picker)
 [![npm Downloads All Releases](https://img.shields.io/npm/dw/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
 [![npm Version](https://img.shields.io/npm/v/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
-[![node Version Required](https://img.shields.io/node/v/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
 
 This Angular module provides a service and a component to show a country picker with localizable names. 
 
