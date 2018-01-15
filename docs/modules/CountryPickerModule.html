@@ -428,13 +428,13 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
 
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/index.ts</code>
+            <code>src/country-picker.module.ts</code>
         </p>
 
 
@@ -461,27 +461,22 @@
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import { NgModule, ModuleWithProviders, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
-import { Http, HttpModule } from &#x27;@angular/http&#x27;;
+import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { CountryPickerConfig, COUNTRY_PICKER_CONFIG_DEFAULT, COUNTRY_PICKER_CONFIG } from &#x27;./country-picker.config&#x27;;
 import { CountryPickerService } from &#x27;./country-picker.service&#x27;;
 import { CountryPickerComponent } from &#x27;./country-picker.component&#x27;;
 
-export * from &#x27;./country.interface&#x27;;
-export * from &#x27;./country-picker.config&#x27;;
-export * from &#x27;./country-picker.service&#x27;;
-export * from &#x27;./country-picker.component&#x27;;
-
-export function countryPickerServiceFactory(config: CountryPickerConfig, http: Http) {
+export function countryPickerServiceFactory(config: CountryPickerConfig, http: HttpClient) {
   return new CountryPickerService(config, http);
 }
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule
+    HttpClientModule
   ],
   declarations: [
     CountryPickerComponent
@@ -500,7 +495,7 @@ export class CountryPickerModule {
         {
           provide: CountryPickerService,
           useFactory: countryPickerServiceFactory,
-          deps: [COUNTRY_PICKER_CONFIG, Http]
+          deps: [COUNTRY_PICKER_CONFIG, HttpClient]
         }
       ]
     };
@@ -508,8 +503,7 @@ export class CountryPickerModule {
 
   constructor(@Optional() @SkipSelf() parentModule: CountryPickerModule) {
     if (parentModule) {
-      throw new Error(
-        &#x27;CountryPickerModule is already loaded. Import it in the AppModule only&#x27;);
+      throw new Error(&#x27;CountryPickerModule is already loaded. Import it in the AppModule only&#x27;);
     }
   }
 }

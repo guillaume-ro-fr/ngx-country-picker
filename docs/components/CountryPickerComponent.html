@@ -352,7 +352,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -365,7 +365,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -392,6 +392,13 @@
 
 
 
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;select class&#x3D;&quot;form-control form-control-sm&quot;&gt;                &lt;option *ngFor&#x3D;&quot;let c of countries&quot; [value]&#x3D;&quot;getValue(c)&quot;&gt;
+                  &lt;img *ngIf&#x3D;&quot;flag&quot; [src]&#x3D;&quot;baseUrl + c.cca3.toLowerCase() + &#x27;.svg&#x27;&quot;&gt;{{ getName(c) }}
+                &lt;/option&gt;
+            &lt;/select&gt;</code></pre></td>
+            </tr>
 
 
 
@@ -412,10 +419,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <span class="modifier">Public</span> <a href="#baseUrl">baseUrl</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#baseUrl">baseUrl</a>
                             </li>
                             <li>
-                                <span class="modifier">Public</span> <a href="#countries">countries</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#countries">countries</a>
                             </li>
                         </ul>
                     </td>
@@ -429,13 +438,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <span class="modifier">Public</span> <a href="#getName">getName</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#getName">getName</a>
                             </li>
                             <li>
-                                <span class="modifier">Public</span> <a href="#getValue">getValue</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#getValue">getValue</a>
                             </li>
                             <li>
-                                <span class="modifier">Public</span> <a href="#ngOnInit">ngOnInit</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -542,7 +554,7 @@
                         </td>
                         <td class="col-md-10">
                             <p>
-                              <em>Default value: </em><code>name.common</code>
+                              <em>Default value: </em><code>&#x27;name.common&#x27;</code>
                             </p>
                         </td>
                     </tr>
@@ -562,7 +574,7 @@
                         </td>
                         <td class="col-md-10">
                             <p>
-                              <em>Default value: </em><code>cca3</code>
+                              <em>Default value: </em><code>&#x27;cca3&#x27;</code>
                             </p>
                         </td>
                     </tr>
@@ -588,7 +600,13 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getName"></a>
-                            <span class="name"><b><span class="modifier">Public</span> getName</b><a href="#getName"><span class="fa fa-link"></span></a></span>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                getName
+                                </b>
+                                <a href="#getName"><span class="fa fa-link"></span></a>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -650,7 +668,13 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="getValue"></a>
-                            <span class="name"><b><span class="modifier">Public</span> getValue</b><a href="#getValue"><span class="fa fa-link"></span></a></span>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                getValue
+                                </b>
+                                <a href="#getValue"><span class="fa fa-link"></span></a>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -712,7 +736,13 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="ngOnInit"></a>
-                            <span class="name"><b><span class="modifier">Public</span> ngOnInit</b><a href="#ngOnInit"><span class="fa fa-link"></span></a></span>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                ngOnInit
+                                </b>
+                                <a href="#ngOnInit"><span class="fa fa-link"></span></a>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -752,7 +782,13 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="baseUrl"></a>
-                            <span class="name"><b><span class="modifier">Public</span> baseUrl</b><a href="#baseUrl"><span class="fa fa-link"></span></a></span>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                baseUrl
+                                </b>
+                                <a href="#baseUrl"><span class="fa fa-link"></span></a>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -781,7 +817,13 @@
                     <tr>
                         <td class="col-md-4">
                             <a name="countries"></a>
-                            <span class="name"><b><span class="modifier">Public</span> countries</b><a href="#countries"><span class="fa fa-link"></span></a></span>
+                            <span class="name">
+                                <b>
+                                    <span class="modifier">Public</span>
+                                countries
+                                </b>
+                                <a href="#countries"><span class="fa fa-link"></span></a>
+                            </span>
                         </td>
                     </tr>
                     <tr>
@@ -794,6 +836,11 @@
                             <td class="col-md-4">
                                 <i>Type : </i>    <code><a href="../interfaces/ICountry.html" target="_self" >ICountry[]</a></code>
     
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>[]</code>
                             </td>
                         </tr>
                             <tr>
@@ -810,7 +857,7 @@
 </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 
 import { ICountry } from &#x27;./country.interface&#x27;;
@@ -865,7 +912,7 @@ export class CountryPickerComponent implements OnInit {
     </div>
 
 
-    <div class="tab-pane fade" id="tree">
+    <div class="tab-pane fade" id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
             <div class="title">
@@ -888,7 +935,7 @@ export class CountryPickerComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div></div>'
+        var COMPONENT_TEMPLATE = '<div><select class="form-control form-control-sm">                <option *ngFor="let c of countries" [value]="getValue(c)">                  <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + \'.svg\'">{{ getName(c) }}                </option>            </select></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app'},{'name': 'CountryPickerComponent', 'selector': 'country-picker'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CountryPickerComponent'};

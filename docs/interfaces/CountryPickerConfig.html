@@ -355,7 +355,7 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -464,19 +464,19 @@
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import { InjectionToken } from &#x27;@angular/core&#x27;;
 
 export const COUNTRY_PICKER_CONFIG &#x3D; new InjectionToken&lt;CountryPickerConfig&gt;(&#x27;countrypicker.config&#x27;);
 
 export interface CountryPickerConfig {
-    baseUrl: string;
-    filename: string;
+  baseUrl: string;
+  filename: string;
 }
 
 export const COUNTRY_PICKER_CONFIG_DEFAULT: CountryPickerConfig &#x3D; {
-    baseUrl: &#x27;assets/&#x27;,
-    filename: &#x27;countries.json&#x27;,
+  baseUrl: &#x27;assets/&#x27;,
+  filename: &#x27;countries.json&#x27;,
 };
 </code></pre>
     </div>
