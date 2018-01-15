@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
@@ -15,14 +15,14 @@ export class CountryPickerService {
   private filename: string;
   private data: Observable<ICountry[]> = null;
 
-  private static handleError(error: Response | any) {
+  private static handleError(error: HttpResponse<any> | any) {
     let errMsg: string;
-    if (error instanceof Response) {
+    if (error instanceof HttpResponse) {
       if (error.status === 404) {
         errMsg = 'Error loading countries.json file.'
           + ' Please configure WebPack and load countries.json assets to your root folder';
       } else {
-        const body = error.json() || '';
+        const body = error.body || '';
         const err = body.error || JSON.stringify(body);
         errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
       }
@@ -33,7 +33,7 @@ export class CountryPickerService {
     return Observable.throw(errMsg);
   }
 
-  constructor(@Inject(COUNTRY_PICKER_CONFIG) private config: CountryPickerConfig, private http: Http) {
+  constructor(@Inject(COUNTRY_PICKER_CONFIG) config: CountryPickerConfig, private http: HttpClient) {
     this.baseUrl = config.baseUrl;
     this.filename = config.filename;
     this.data = this.loadData();
@@ -51,8 +51,7 @@ export class CountryPickerService {
   }
 
   private loadData(): Observable<ICountry[]> {
-    return this.http.get(this.baseUrl + this.filename)
-      .map((res: Response) => res.json() || {})
+    return this.http.get<ICountry[]>(this.baseUrl + this.filename)
       .catch(CountryPickerService.handleError);
   }
 }

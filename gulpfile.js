@@ -3,7 +3,6 @@ var gulp = require('gulp'),
   path = require('path'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
-  rename = require('gulp-rename'),
   del = require('del'),
   runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
@@ -18,10 +17,7 @@ const distFolder = path.join(rootFolder, 'dist');
  * 1. Delete /dist folder
  */
 gulp.task('clean:dist', function () {
-
-  // Delete contents but not dist folder to avoid broken npm links
-  // when dist directory is removed while npm link references it.
-  return deleteFolders([distFolder + '/**', '!' + distFolder]);
+  return deleteFolders([distFolder]);
 });
 
 /**
@@ -58,93 +54,35 @@ gulp.task('ngc', function () {
         // so that when ngc fails to compile, the whole compile process stops running
         throw new Error('ngc compilation failed');
       }
-    });
+  });
 });
 
 /**
  * 5. Run rollup inside the /build folder to generate our Flat ES module and place the
  *    generated file into the /dist folder
  */
-gulp.task('rollup:fesm', function () {
+gulp.task('rollup', function () {
   return gulp.src(`${buildFolder}/**/*.js`)
   // transform the files here.
     .pipe(rollup({
-
-      // Bundle's entry point
-      // See "input" in https://rollupjs.org/#core-functionality
+      // any option supported by Rollup can be set here.
       input: `${buildFolder}/index.js`,
-
-      // Allow mixing of hypothetical and actual files. "Actual" files can be files
-      // accessed by Rollup or produced by plugins further down the chain.
-      // This prevents errors like: 'path/file' does not exist in the hypothetical file system
-      // when subdirectories are used in the `src` directory.
-      allowRealFiles: true,
-
-      // A list of IDs of modules that should remain external to the bundle
-      // See "external" in https://rollupjs.org/#core-functionality
       external: [
         '@angular/core',
-        '@angular/common'
+        '@angular/common',
+        '@angular/common/http',
+        'rxjs/Observable',
+        'rxjs/add/observable/throw',
+        'rxjs/add/operator/catch',
+        'rxjs/add/operator/map',
       ],
-
-      // Format of generated bundle
-      // See "format" in https://rollupjs.org/#core-functionality
       format: 'es'
     }))
     .pipe(gulp.dest(distFolder));
 });
 
 /**
- * 6. Run rollup inside the /build folder to generate our UMD module and place the
- *    generated file into the /dist folder
- */
-gulp.task('rollup:umd', function () {
-  return gulp.src(`${buildFolder}/**/*.js`)
-  // transform the files here.
-    .pipe(rollup({
-
-      // Bundle's entry point
-      // See "input" in https://rollupjs.org/#core-functionality
-      input: `${buildFolder}/index.js`,
-
-      // Allow mixing of hypothetical and actual files. "Actual" files can be files
-      // accessed by Rollup or produced by plugins further down the chain.
-      // This prevents errors like: 'path/file' does not exist in the hypothetical file system
-      // when subdirectories are used in the `src` directory.
-      allowRealFiles: true,
-
-      // A list of IDs of modules that should remain external to the bundle
-      // See "external" in https://rollupjs.org/#core-functionality
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
-
-      // Format of generated bundle
-      // See "format" in https://rollupjs.org/#core-functionality
-      format: 'umd',
-
-      // Export mode to use
-      // See "exports" in https://rollupjs.org/#danger-zone
-      exports: 'named',
-
-      // The name to use for the module for UMD/IIFE bundles
-      // (required for bundles with exports)
-      // See "name" in https://rollupjs.org/#core-functionality
-      name: 'ngx-country-picker',
-
-      // See "globals" in https://rollupjs.org/#core-functionality
-      globals: {
-        typescript: 'ts'
-      }
-
-    }))
-    .pipe(rename('ngx-country-picker.umd.js'))
-    .pipe(gulp.dest(distFolder));
-});
-
-/**
- * 7. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
+ * 6. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
@@ -154,7 +92,7 @@ gulp.task('copy:build', function () {
 });
 
 /**
- * 8. Copy package.json from /src to /dist
+ * 7. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function () {
   return gulp.src([`${srcFolder}/package.json`])
@@ -162,22 +100,14 @@ gulp.task('copy:manifest', function () {
 });
 
 /**
- * 9. Copy README.md and LICENSE.md from / to /dist
- */
-gulp.task('copy:readme_license', function () {
-  return gulp.src([path.join(rootFolder, 'README.md'), path.join(rootFolder, 'LICENSE.md')])
-    .pipe(gulp.dest(distFolder));
-});
-
-/**
- * 10. Delete /.tmp folder
+ * 8. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
   return deleteFolders([tmpFolder]);
 });
 
 /**
- * 11. Delete /build folder
+ * 9. Delete /build folder
  */
 gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
@@ -189,11 +119,9 @@ gulp.task('compile', function () {
     'copy:source',
     'inline-resources',
     'ngc',
-    'rollup:fesm',
-    'rollup:umd',
+    'rollup',
     'copy:build',
     'copy:manifest',
-    'copy:readme_license',
     'clean:build',
     'clean:tmp',
     function (err) {

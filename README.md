@@ -1,4 +1,4 @@
-# ngx-countrypicker
+# ngx-country-picker
 
 [![Build Status](https://travis-ci.org/guillaume-ro-fr/ngx-country-picker.svg?branch=master)](https://travis-ci.org/guillaume-ro-fr/ngx-country-picker)
 [![GitHub Downloads All Releases](https://img.shields.io/github/downloads/guillaume-ro-fr/ngx-country-picker/total.svg)](https://github.com/guillaume-ro-fr/ngx-country-picker)
@@ -13,6 +13,12 @@ To install this library, run:
 
 ```bash
 $ npm install ngx-country-picker --save
+```
+
+or with Yarn :
+
+```bash
+$ yarn add ngx-country-picker
 ```
 
 ## Consuming your library

@@ -1,6 +1,6 @@
 {
   "name": "ngx-country-picker",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/guillaume-ro-fr/ngx-country-picker"
@@ -11,8 +11,8 @@
   },
   "keywords": [
     "angular",
-    "angular2",
     "angular4",
+    "angular5",
     "country-picker"
   ],
   "license": "MIT",
@@ -27,9 +27,8 @@
     "world-countries": "git+https://github.com/mledoze/countries.git"
   },
   "peerDependencies": {
-    "@angular/common": "^2.0.0 || ^4.0.0",
-    "@angular/core": "^2.0.0 || ^4.0.0",
-    "@angular/http": "^2.0.0 || ^4.0.0",
+    "@angular/common": "^4.3.0 || ^5.0.0",
+    "@angular/core": "^4.3.0 || ^5.0.0",
     "rxjs": "^5.1.0"
   }
 }
