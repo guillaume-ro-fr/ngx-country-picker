@@ -338,7 +338,7 @@
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm install ngx-country-picker --save</code></pre><p>or with Yarn :</p>
-<pre class="line-numbers"><code class="language-bash">$ yarn add ngx-country-picker</code></pre><h2 id="consuming-your-library">Consuming your library</h2>
+<pre class="line-numbers"><code class="language-bash">$ yarn add ngx-country-picker</code></pre><h2 id="consuming-the-country-picker">Consuming the Country Picker</h2>
 <p>Add the <code>CountryPickerModule</code> to your Angular <code>AppModule</code>:</p>
 <pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
 import { NgModule } from &#39;&#64;angular/core&#39;;
@@ -361,11 +361,30 @@ import { CountryPickerModule } from &#39;ngx-country-picker&#39;;
   bootstrap: [AppComponent]
 })
 export class AppModule { }</code></pre><p>Once CountryPicker is imported, you can use the component in your Angular application:</p>
-<pre class="line-numbers"><code class="language-html">&lt;!-- You can now use your library component in app.component.html --&gt;
+<pre class="line-numbers"><code class="language-html">&lt;!-- You can now use the CountryPickerComponent in app.component.html --&gt;
 &lt;h1&gt;
   {{title}}
 &lt;/h1&gt;
-&lt;country-picker [flag]=&quot;false&quot; [setValue]=&quot;cca3&quot; [setName]=&quot;name.common&quot;&gt;&lt;/country-picker&gt;</code></pre><h2 id="development">Development</h2>
+&lt;country-picker [flag]=&quot;false&quot; [setValue]=&quot;cca3&quot; [setName]=&quot;name.common&quot;&gt;&lt;/country-picker&gt;</code></pre><p>You can also use the CountryPickerService to import the list of countries in your app:</p>
+<pre class="line-numbers"><code class="language-typescript">export class YourComponent {
+
+  public countries: ICountry[] = [];
+
+  ...
+
+  constructor(protected countryPicker: CountryPickerService) {
+
+  }
+
+  ...
+
+  public ngOnInit(): void {
+    this.countryPicker.getCountries()
+      .subscribe((countries: ICountry[]) =&gt; this.countries = countries);
+  }
+
+  ...
+}</code></pre><h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run build</code></pre><p>To lint all <code>*.ts</code> files:</p>
 <pre class="line-numbers"><code class="language-bash">$ npm run lint</code></pre><h2 id="license">License</h2>
