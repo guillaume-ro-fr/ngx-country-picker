@@ -41,7 +41,7 @@ import { CountryPickerModule } from 'ngx-country-picker';
   imports: [
     BrowserModule,
     // Import here
-    CountryPickerModule
+    CountryPickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
