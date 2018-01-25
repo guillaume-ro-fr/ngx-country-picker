@@ -56,7 +56,7 @@ Once CountryPicker is imported, you can use the component in your Angular applic
 <h1>
   {{title}}
 </h1>
-<country-picker [flag]="false" [setValue]="cca3" [setName]="name.common"></country-picker>
+<country-picker [flag]="false" [setValue]="'cca3'" [setName]="'name.common'"></country-picker>
 ```
 
 You can also use the CountryPickerService to import the list of countries in your app:
