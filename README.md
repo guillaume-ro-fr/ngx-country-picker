@@ -5,7 +5,7 @@
 [![npm Downloads All Releases](https://img.shields.io/npm/dw/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
 [![npm Version](https://img.shields.io/npm/v/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
 
-This Angular module provides a service and a component to show a country picker with localizable names. 
+This Angular module provides a service and a component to show a country picker with localizable names, inspired by [Paldom/angular2-countrypicker](https://github.com/Paldom/angular2-countrypicker)
 
 ## Installation
 
@@ -56,7 +56,7 @@ Once CountryPicker is imported, you can use the component in your Angular applic
 <h1>
   {{title}}
 </h1>
-<country-picker [flag]="false" [setValue]="'cca3'" [setName]="'name.common'"></country-picker>
+<country-picker [flag]="false" [setValue]="'cca3'" [setName]="'name.common'" [classes]="['form-control']"></country-picker>
 ```
 
 You can also use the CountryPickerService to import the list of countries in your app:
@@ -88,13 +88,13 @@ export class YourComponent {
 To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
 
 ```bash
-$ npm run build
+$ yarn run build
 ```
 
 To lint all `*.ts` files:
 
 ```bash
-$ npm run lint
+$ yarn run lint
 ```
 
 ## License

@@ -5,17 +5,18 @@ import { CountryPickerService } from './country-picker.service';
 
 @Component({
   selector: 'country-picker',
-  template: `<select class="form-control form-control-sm">
-                <option *ngFor="let c of countries" [value]="getValue(c)">
-                  <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + '.svg'">{{ getName(c) }}
-                </option>
-            </select>`
+  template: `<select [class]="classes">
+               <option *ngFor="let c of countries" [value]="getValue(c)">
+                 <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + '.svg'">{{ getName(c) }}
+               </option>
+             </select>`
 })
 export class CountryPickerComponent implements OnInit {
 
   @Input() flag = false;
   @Input() setValue = 'cca3';
   @Input() setName = 'name.common';
+  @Input() classes = ['form-control', 'form-control-sm'];
 
   public countries: ICountry[] = [];
   public baseUrl: string;
