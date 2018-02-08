@@ -76,7 +76,9 @@ gulp.task('rollup', function () {
         'rxjs/add/operator/catch',
         'rxjs/add/operator/map',
       ],
-      format: 'es'
+      output: {
+        format: 'es'
+      }
     }))
     .pipe(gulp.dest(distFolder));
 });
