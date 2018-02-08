@@ -4,4 +4,4 @@
 
 "world-countries@git+https://github.com/mledoze/countries.git":
   version "1.8.1"
-  resolved "git+https://github.com/mledoze/countries.git#a9daa479147aec1ec9468d6dbc38984853ff041e"
+  resolved "git+https://github.com/mledoze/countries.git#17cbae3ee34e728290325dd1d1b74191089c668d"
