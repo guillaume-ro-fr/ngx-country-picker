@@ -4,6 +4,7 @@
 [![GitHub Downloads All Releases](https://img.shields.io/github/downloads/guillaume-ro-fr/ngx-country-picker/total.svg)](https://github.com/guillaume-ro-fr/ngx-country-picker)
 [![npm Downloads All Releases](https://img.shields.io/npm/dw/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
 [![npm Version](https://img.shields.io/npm/v/ngx-country-picker.svg)](https://www.npmjs.com/package/ngx-country-picker)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker?ref=badge_shield)
 
 This Angular module provides a service and a component to show a country picker with localizable names, inspired by [Paldom/angular2-countrypicker](https://github.com/Paldom/angular2-countrypicker)
 
@@ -100,3 +101,6 @@ $ yarn run lint
 ## License
 
 MIT © [Guillaume RODRIGUEZ](https://github.com/guillaume-ro-fr)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker?ref=badge_large)
