@@ -101,6 +101,3 @@ $ yarn run lint
 ## License
 
 MIT © [Guillaume RODRIGUEZ](https://github.com/guillaume-ro-fr)
-
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker?ref=badge_large)
