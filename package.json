@@ -26,6 +26,8 @@
     "angular",
     "angular2",
     "angular4",
+    "angular5",
+    "angular6",
     "country-picker"
   ],
   "license": "MIT",
