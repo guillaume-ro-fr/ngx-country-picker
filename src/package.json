@@ -13,6 +13,7 @@
     "angular",
     "angular4",
     "angular5",
+    "angular6",
     "country-picker"
   ],
   "license": "MIT",
@@ -27,8 +28,8 @@
     "world-countries": "git+https://github.com/mledoze/countries.git"
   },
   "peerDependencies": {
-    "@angular/common": "^4.3.0 || ^5.0.0",
-    "@angular/core": "^4.3.0 || ^5.0.0",
+    "@angular/common": "^4.3.0 || ^5.0.0 || ^6.0.0",
+    "@angular/core": "^4.3.0 || ^5.0.0 || ^6.0.0",
     "rxjs": "^5.5.0 || ^6.0.0"
   }
 }
