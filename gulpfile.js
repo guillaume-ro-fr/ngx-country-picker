@@ -1,11 +1,11 @@
 /* eslint-disable */
-var gulp = require('gulp'),
-  path = require('path'),
+const path = require('path'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
   del = require('del'),
-  runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
+
+const {watch, series, parallel, src, dest} = require('gulp');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
@@ -16,135 +16,98 @@ const distFolder = path.join(rootFolder, 'dist');
 /**
  * 1. Delete /dist folder
  */
-gulp.task('clean:dist', function () {
+function cleanDist() {
   return deleteFolders([distFolder]);
-});
+}
 
 /**
  * 2. Clone the /src folder into /.tmp. If an npm link inside /src has been made,
  *    then it's likely that a node_modules folder exists. Ignore this folder
  *    when copying to /.tmp.
  */
-gulp.task('copy:source', function () {
-  return gulp.src([`${srcFolder}/**/*`, `!${srcFolder}/node_modules`])
-    .pipe(gulp.dest(tmpFolder));
-});
+function copySource() {
+  return src([`${srcFolder}/**/*`, `!${srcFolder}/node_modules`])
+    .pipe(dest(tmpFolder));
+}
 
 /**
  * 3. Inline template (.html) and style (.css) files into the the component .ts files.
  *    We do this on the /.tmp folder to avoid editing the original /src files
  */
-gulp.task('inline-resources', function () {
-  return Promise.resolve()
-    .then(() => inlineResources(tmpFolder));
-});
-
+function inlineRes() {
+  return inlineResources(tmpFolder);
+}
 
 /**
  * 4. Run the Angular compiler, ngc, on the /.tmp folder. This will output all
  *    compiled modules to the /build folder.
  */
-gulp.task('ngc', function () {
-  return ngc(['-p', `${tmpFolder}/tsconfig.es5.json`], (error) => {
-    if (error) {
-      // This error is caught in the 'compile' task by the runSequence method callback
-        // so that when ngc fails to compile, the whole compile process stops running
-        throw new Error('ngc compilation failed : ' + error);
+function angularCompile() {
+  return new Promise((resolve, reject) => {
+    const exitCode = ngc(['--project', `${tmpFolder}/tsconfig.es5.json`], error => reject(error));
+    if (exitCode) {
+      reject(exitCode);
+    } else {
+      resolve();
     }
   });
-});
+}
 
 /**
  * 5. Run rollup inside the /build folder to generate our Flat ES module and place the
  *    generated file into the /dist folder
  */
-gulp.task('rollup', function () {
-  return gulp.src(`${buildFolder}/**/*.js`)
+function rollupBuild() {
+  return src(`${buildFolder}/**/*.js`)
   // transform the files here.
     .pipe(rollup({
       // any option supported by Rollup can be set here.
       input: `${buildFolder}/index.js`,
+      output: {
+        format: 'es',
+      },
       external: [
         '@angular/core',
         '@angular/common',
         '@angular/common/http',
-        'rxjs/Observable',
-        'rxjs/add/observable/throw',
-        'rxjs/add/operator/catch',
-        'rxjs/add/operator/map',
-      ],
-      output: {
-        format: 'es'
-      }
+        'rxjs',
+        'rxjs/operators',
+      ]
     }))
-    .pipe(gulp.dest(distFolder));
-});
+    .pipe(dest(distFolder));
+}
 
 /**
  * 6. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
-gulp.task('copy:build', function () {
-  return gulp.src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
-    .pipe(gulp.dest(distFolder));
-});
+function copyBuild() {
+  return src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
+    .pipe(dest(distFolder));
+}
 
 /**
  * 7. Copy package.json from /src to /dist
  */
-gulp.task('copy:manifest', function () {
-  return gulp.src([`${srcFolder}/package.json`])
-    .pipe(gulp.dest(distFolder));
-});
+function copyManifest() {
+  return src([`${srcFolder}/package.json`])
+    .pipe(dest(distFolder));
+}
 
 /**
  * 8. Delete /.tmp folder
  */
-gulp.task('clean:tmp', function () {
+function cleanTmp() {
   return deleteFolders([tmpFolder]);
-});
+}
 
 /**
  * 9. Delete /build folder
  */
-gulp.task('clean:build', function () {
+function cleanBuild() {
   return deleteFolders([buildFolder]);
-});
-
-gulp.task('compile', function () {
-  runSequence(
-    'clean:dist',
-    'copy:source',
-    'inline-resources',
-    'ngc',
-    'rollup',
-    'copy:build',
-    'copy:manifest',
-    'clean:build',
-    'clean:tmp',
-    function (err) {
-      if (err) {
-        console.log('ERROR:', err.message);
-        deleteFolders([distFolder, tmpFolder, buildFolder]);
-      } else {
-        console.log('Compilation finished succesfully');
-      }
-    });
-});
-
-/**
- * Watch for any change in the /src folder and compile files
- */
-gulp.task('watch', function () {
-  gulp.watch(`${srcFolder}/**/*`, ['compile']);
-});
-
-gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
-
-gulp.task('build', ['clean', 'compile']);
-gulp.task('build:watch', ['build', 'watch']);
-gulp.task('default', ['build:watch']);
+}
 
 /**
  * Deletes the specified folder
@@ -152,3 +115,25 @@ gulp.task('default', ['build:watch']);
 function deleteFolders(folders) {
   return del(folders);
 }
+
+function watchSrc() {
+  return watch(`${srcFolder}/**/*`, exports.build);
+}
+
+exports.clean = parallel(cleanDist, cleanTmp, cleanBuild);
+exports.build = series(
+  exports.clean,
+  series(
+    copySource,
+    inlineRes,
+    angularCompile,
+    rollupBuild,
+    copyBuild,
+    copyManifest,
+    cleanBuild,
+    cleanTmp
+  )
+);
+exports.watch = watchSrc;
+exports.buildWatch = series(exports.build, exports.watch);
+exports.default = exports.buildWatch;
