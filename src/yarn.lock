@@ -3,5 +3,5 @@
 
 
 "world-countries@git+https://github.com/mledoze/countries.git":
-  version "1.8.1"
-  resolved "git+https://github.com/mledoze/countries.git#17cbae3ee34e728290325dd1d1b74191089c668d"
+  version "2.1.0"
+  resolved "git+https://github.com/mledoze/countries.git#ae370bc33da753c3afcf366c27480fd779ad3cfc"
