@@ -39,20 +39,18 @@
 <p>This Angular module provides a service and a component to show a country picker with localizable names, inspired by <a href="https://github.com/Paldom/angular2-countrypicker">Paldom/angular2-countrypicker</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
-<p><code>bash
-$ npm install ngx-country-picker --save</code></p>
-<p>or with Yarn :</p>
-<p><code>bash
-$ yarn add ngx-country-picker</code></p>
-<h2 id="consuming-the-country-picker">Consuming the Country Picker</h2>
+<div><pre class="line-numbers"><code class="language-bash">$ npm install ngx-country-picker --save</code></pre></div><p>or with Yarn :</p>
+<div><pre class="line-numbers"><code class="language-bash">$ yarn add ngx-country-picker</code></pre></div><h2 id="consuming-the-country-picker">Consuming the Country Picker</h2>
 <p>Add the <code>CountryPickerModule</code> to your Angular <code>AppModule</code>:</p>
-<p>```typescript
-import { BrowserModule } from &#39;@angular/platform-browser&#39;;
-import { NgModule } from &#39;@angular/core&#39;;</p>
-<p>import { AppComponent } from &#39;./app.component&#39;;</p>
-<p>// Import your library
-import { CountryPickerModule } from &#39;ngx-country-picker&#39;;</p>
-<p>@NgModule({
+<div><pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#39;&#64;angular/platform-browser&#39;;
+import { NgModule } from &#39;&#64;angular/core&#39;;
+
+import { AppComponent } from &#39;./app.component&#39;;
+
+// Import your library
+import { CountryPickerModule } from &#39;ngx-country-picker&#39;;
+
+&#64;NgModule({
   declarations: [
     AppComponent
   ],
@@ -64,40 +62,34 @@ import { CountryPickerModule } from &#39;ngx-country-picker&#39;;</p>
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-```</p>
-<p>Once CountryPicker is imported, you can use the component in your Angular application:</p>
-<p>```html</p>
-<!-- You can now use the CountryPickerComponent in app.component.html -->
-<h1>
+export class AppModule { }</code></pre></div><p>Once CountryPicker is imported, you can use the component in your Angular application:</p>
+<div><pre class="line-numbers"><code class="language-html">&lt;!-- You can now use the CountryPickerComponent in app.component.html --&gt;
+&lt;h1&gt;
   {{title}}
-</h1>
-<country-picker [flag]="false" [setValue]="'cca3'" [setName]="'name.common'" [classes]="['form-control']"></country-picker>
-```
+&lt;/h1&gt;
+&lt;country-picker [flag]=&quot;false&quot; [setValue]=&quot;&#39;cca3&#39;&quot; [setName]=&quot;&#39;name.common&#39;&quot; [classes]=&quot;[&#39;form-control&#39;]&quot;&gt;&lt;/country-picker&gt;</code></pre></div><p>You can also use the CountryPickerService to import the list of countries in your app:</p>
+<div><pre class="line-numbers"><code class="language-typescript">export class YourComponent {
 
-<p>You can also use the CountryPickerService to import the list of countries in your app:</p>
-<p>```typescript
-export class YourComponent {</p>
-<p>  public countries: ICountry[] = [];</p>
-<p>  ...</p>
-<p>  constructor(protected countryPicker: CountryPickerService) {</p>
-<p>  }</p>
-<p>  ...</p>
-<p>  public ngOnInit(): void {
+  public countries: ICountry[] = [];
+
+  ...
+
+  constructor(protected countryPicker: CountryPickerService) {
+
+  }
+
+  ...
+
+  public ngOnInit(): void {
     this.countryPicker.getCountries()
       .subscribe((countries: ICountry[]) =&gt; this.countries = countries);
-  }</p>
-<p>  ...
-}
-```</p>
-<h2 id="development">Development</h2>
+  }
+
+  ...
+}</code></pre></div><h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
-<p><code>bash
-$ yarn run build</code></p>
-<p>To lint all <code>*.ts</code> files:</p>
-<p><code>bash
-$ yarn run lint</code></p>
-<h2 id="license">License</h2>
+<div><pre class="line-numbers"><code class="language-bash">$ yarn run build</code></pre></div><p>To lint all <code>*.ts</code> files:</p>
+<div><pre class="line-numbers"><code class="language-bash">$ yarn run lint</code></pre></div><h2 id="license">License</h2>
 <p>MIT © <a href="https://github.com/guillaume-ro-fr">Guillaume RODRIGUEZ</a></p>
 
 
@@ -113,6 +105,7 @@ $ yarn run lint</code></p>
 
 
 
+                   
 
 
 
