@@ -7080,9 +7080,10 @@ wordwrap@~1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
 
-"world-countries@git+https://github.com/mledoze/countries.git":
-  version "2.1.0"
-  resolved "git+https://github.com/mledoze/countries.git#ae370bc33da753c3afcf366c27480fd779ad3cfc"
+world-countries@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/world-countries/-/world-countries-3.0.0.tgz#b312e4b2dc87b7f6dad449bca6f0ce4ae54d68e8"
+  integrity sha512-A8OWDWzdua61Loa3GpYg3pzDVxP7lKjmBTRwvNMxtlVt9iCln4mI74l9LYKOMv/lL1p0r/jvYOdu0JyB2OHlDQ==
 
 wrap-ansi@^2.0.0:
   version "2.1.0"

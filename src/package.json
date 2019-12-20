@@ -26,7 +26,7 @@
   "jsnext:main": "ngx-country-picker.js",
   "typings": "ngx-country-picker.d.ts",
   "dependencies": {
-    "world-countries": "git+https://github.com/mledoze/countries.git"
+    "world-countries": "^3.0.0"
   },
   "peerDependencies": {
     "@angular/common": ">=6.0.0 <9.0.0",
