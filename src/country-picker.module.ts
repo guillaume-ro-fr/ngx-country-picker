@@ -1,7 +1,7 @@
-import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { CountryPickerConfig, COUNTRY_PICKER_CONFIG_DEFAULT, COUNTRY_PICKER_CONFIG } from './country-picker.config';
+import { COUNTRY_PICKER_CONFIG, COUNTRY_PICKER_CONFIG_DEFAULT, CountryPickerConfig } from './country-picker.config';
 import { CountryPickerService } from './country-picker.service';
 import { CountryPickerComponent } from './country-picker.component';
 
@@ -27,7 +27,7 @@ export class CountryPickerModule {
     return {
       ngModule: CountryPickerModule,
       providers: [
-        { provide: COUNTRY_PICKER_CONFIG, useValue: providedConfig },
+        {provide: COUNTRY_PICKER_CONFIG, useValue: providedConfig},
         {
           provide: CountryPickerService,
           useFactory: countryPickerServiceFactory,

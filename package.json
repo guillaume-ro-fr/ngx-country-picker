@@ -1,9 +1,9 @@
 {
   "name": "ngx-country-picker",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "scripts": {
-    "build": "gulp build",
-    "build:watch": "gulp",
+    "build": "ng-packagr -p src/package.json",
+    "watch": "yarn run build --watch",
     "docs": "yarn run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ngx-country-picker -d docs --hideGenerator",
     "docs:serve": "yarn run docs:build -s",
@@ -11,25 +11,22 @@
     "lint": "tslint --project tsconfig.json src/**/*.ts",
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
-    "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
-    "test": "tsc && karma start"
+    "playground": "concurrently \"yarn run build\" \"yarn run playground:build\" \"yarn run lite\"",
+    "test": "yarn run build && karma start"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/guillaume-ro-fr/ngx-country-picker"
   },
   "author": {
-    "name": "Guillaume RODRIGUEZ",
-    "email": "guiguidu31300@gmail.com"
+    "name": "Guillaume RODRIGUEZ"
   },
   "keywords": [
     "angular",
-    "angular2",
-    "angular4",
-    "angular5",
     "angular6",
     "angular7",
     "angular8",
+    "angular9",
     "country-picker"
   ],
   "license": "MIT",
@@ -51,9 +48,6 @@
     "codelyzer": "~5.1.0",
     "concurrently": "^4.1.1",
     "core-js": "^2.5.5",
-    "del": "^5.0.0",
-    "gulp": "^4.0.0",
-    "gulp-rollup": "^2.16.2",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.2.0",
@@ -63,12 +57,10 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "lite-server": "^2.5.3",
+    "ng-packagr": "^5.7.1",
     "node-sass": "^4.12.0",
     "node-sass-tilde-importer": "^1.0.2",
-    "node-watch": "^0.6.2",
     "protractor": "~5.4.1",
-    "rollup": "^1.17.0",
-    "run-sequence": "^2.2.1",
     "rxjs": "^6.0.0",
     "systemjs": "^2.1.1",
     "ts-node": "~8.3.0",

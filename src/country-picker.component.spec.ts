@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By }              from '@angular/platform-browser';
-import { DebugElement }    from '@angular/core';
-import { } from 'jasmine';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 import { CountryPickerComponent } from './country-picker.component';
 
 describe('CountryPickerComponent', () => {
 
-  let comp:    CountryPickerComponent;
+  let comp: CountryPickerComponent;
   let fixture: ComponentFixture<CountryPickerComponent>;
-  let de:      DebugElement;
-  let el:      HTMLElement;
+  let de: DebugElement;
+  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ CountryPickerComponent ], // declare the test component
+      declarations: [CountryPickerComponent], // declare the test component
     });
 
     fixture = TestBed.createComponent(CountryPickerComponent);

@@ -9,9 +9,9 @@ import { ICountry } from './country.interface';
 @Injectable()
 export class CountryPickerService {
 
-  protected readonly baseUrl: string;
-  protected readonly filename: string;
-  protected data: Observable<ICountry[]> = null;
+  private readonly _baseUrl: string;
+  private readonly _filename: string;
+  private _data: Observable<ICountry[]> | null = null;
 
   protected static handleError(error: HttpResponse<any> | any): Observable<any> {
     let errMsg: string;
@@ -31,28 +31,33 @@ export class CountryPickerService {
     return throwError(errMsg);
   }
 
-  constructor(@Inject(COUNTRY_PICKER_CONFIG) config: CountryPickerConfig, private http: HttpClient) {
-    this.baseUrl = config.baseUrl;
-    this.filename = config.filename;
-    this.data = this.loadData();
+  constructor(
+    @Inject(COUNTRY_PICKER_CONFIG) config: CountryPickerConfig,
+    private _http: HttpClient
+  ) {
+    this._baseUrl = config.baseUrl;
+    this._filename = config.filename;
+    this._data = this._loadData();
   }
 
   public getCountries(): Observable<ICountry[]> {
-    return this.data
+    return this._data
       .pipe(
-        map((countries: ICountry[]) => countries.map((country: ICountry) => {
-          country.name.native[0] = country.name.native[Object.keys(country.name.native)[0]];
-          return country;
-        }))
+        map((countries: ICountry[]) =>
+          countries.map((country: ICountry) => {
+            country.name.native[0] = country.name.native[Object.keys(country.name.native)[0]];
+            return country;
+          })
+        )
       );
   }
 
   public getBaseUrl(): string {
-    return this.baseUrl;
+    return this._baseUrl;
   }
 
-  protected loadData(): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(this.baseUrl + this.filename)
+  private _loadData(): Observable<ICountry[]> {
+    return this._http.get<ICountry[]>(this._baseUrl + this._filename)
       .pipe(
         catchError(CountryPickerService.handleError)
       );

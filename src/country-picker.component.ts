@@ -1,51 +1,59 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 
 import { ICountry } from './country.interface';
 import { CountryPickerService } from './country-picker.service';
 
 @Component({
   selector: 'country-picker',
-  template: `<select [class]="classes">
-               <option *ngFor="let c of countries" [value]="getValue(c)">
-                 <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + '.svg'">{{ getName(c) }}
-               </option>
-             </select>`
+  template: `
+      <select [class]="classes">
+          <option *ngFor="let c of countries" [value]="getValue(c)">
+              <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + '.svg'">{{ getName(c) }}
+          </option>
+      </select>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountryPickerComponent implements OnInit {
 
-  @Input() flag = false;
-  @Input() setValue = 'cca3';
-  @Input() setName = 'name.common';
-  @Input() classes = ['form-control', 'form-control-sm'];
+  @Input() public flag = false;
+  @Input() public setValue = 'cca3';
+  @Input() public setName = 'name.common';
+  @Input() public classes = ['form-control', 'form-control-sm'];
 
   public countries: ICountry[] = [];
   public baseUrl: string;
 
-  constructor(private countryPickerService: CountryPickerService) {
-    this.baseUrl = countryPickerService.getBaseUrl() + 'data/';
+  constructor(
+    private _countryPickerService: CountryPickerService,
+    private _cdr: ChangeDetectorRef,
+  ) {
+    this.baseUrl = _countryPickerService.getBaseUrl() + 'data/';
   }
 
-  public ngOnInit() {
-    this.countryPickerService.getCountries().subscribe(countries => {
-      this.countries = countries.sort((a: ICountry, b: ICountry) => {
-        let na = this.getName(a);
-        let nb = this.getName(b);
-        if (na > nb) {
-          return 1;
-        }
-        if (na < nb) {
-          return -1;
-        }
-        return 0;
+  public ngOnInit(): void {
+    this._countryPickerService.getCountries()
+      .subscribe(countries => {
+        this.countries = countries.sort((a: ICountry, b: ICountry) => {
+          let na = this.getName(a);
+          let nb = this.getName(b);
+          if (na > nb) {
+            return 1;
+          }
+          if (na < nb) {
+            return -1;
+          }
+          return 0;
+        });
+        this._cdr.markForCheck();
       });
-    });
   }
 
-  public getValue(obj: ICountry) {
+  public getValue(obj: ICountry): string {
     return this.setValue.split('.').reduce((o, i) => o[i], obj);
   }
 
-  public getName(obj: ICountry) {
+  public getName(obj: ICountry): string {
     return this.setName.split('.').reduce((o, i) => o[i], obj);
   }
 }
