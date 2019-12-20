@@ -23,7 +23,7 @@ export function countryPickerServiceFactory(config: CountryPickerConfig, http: H
 })
 export class CountryPickerModule {
 
-  public static forRoot(providedConfig: CountryPickerConfig = COUNTRY_PICKER_CONFIG_DEFAULT): ModuleWithProviders {
+  public static forRoot(providedConfig: CountryPickerConfig = COUNTRY_PICKER_CONFIG_DEFAULT): ModuleWithProviders<CountryPickerModule> {
     return {
       ngModule: CountryPickerModule,
       providers: [
