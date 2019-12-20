@@ -73,6 +73,10 @@
     <table class="table table-sm table-hover">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -92,10 +96,12 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;select [class]&#x3D;&quot;classes&quot;&gt;               &lt;option *ngFor&#x3D;&quot;let c of countries&quot; [value]&#x3D;&quot;getValue(c)&quot;&gt;
-                 &lt;img *ngIf&#x3D;&quot;flag&quot; [src]&#x3D;&quot;baseUrl + c.cca3.toLowerCase() + &#x27;.svg&#x27;&quot;&gt;{{ getName(c) }}
-               &lt;/option&gt;
-             &lt;/select&gt;</code></pre></td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;select [class]&#x3D;&quot;classes&quot;&gt;
+    &lt;option *ngFor&#x3D;&quot;let c of countries&quot; [value]&#x3D;&quot;getValue(c)&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;flag&quot; [src]&#x3D;&quot;baseUrl + c.cca3.toLowerCase() + &#x27;.svg&#x27;&quot;&gt;{{ getName(c) }}
+    &lt;/option&gt;
+&lt;/select&gt;
+</code></pre></td>
             </tr>
 
 
@@ -195,12 +201,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(countryPickerService: <a href="../injectables/CountryPickerService.html">CountryPickerService</a>)</code>
+<code>constructor(_countryPickerService: <a href="../injectables/CountryPickerService.html">CountryPickerService</a>, _cdr: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/country-picker.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/country-picker.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -218,10 +224,22 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>countryPickerService</td>
+                                                        <td>_countryPickerService</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CountryPickerService.html" target="_self" >CountryPickerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_cdr</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -255,7 +273,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/country-picker.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/country-picker.component.ts:22</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -275,7 +293,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/country-picker.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/country-picker.component.ts:19</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -295,7 +313,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/country-picker.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/country-picker.component.ts:21</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -315,7 +333,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/country-picker.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/country-picker.component.ts:20</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -353,8 +371,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/country-picker.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/country-picker.component.ts:56</a></div>
                 </td>
             </tr>
 
@@ -391,7 +409,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -425,8 +443,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/country-picker.component.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/country-picker.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -463,7 +481,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -497,8 +515,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/country-picker.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/country-picker.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -541,7 +559,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/country-picker.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/country-picker.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -574,7 +592,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/country-picker.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/country-picker.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -587,54 +605,62 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 
 import { ICountry } from &#x27;./country.interface&#x27;;
 import { CountryPickerService } from &#x27;./country-picker.service&#x27;;
 
 @Component({
   selector: &#x27;country-picker&#x27;,
-  template: &#x60;&lt;select [class]&#x3D;&quot;classes&quot;&gt;
-               &lt;option *ngFor&#x3D;&quot;let c of countries&quot; [value]&#x3D;&quot;getValue(c)&quot;&gt;
-                 &lt;img *ngIf&#x3D;&quot;flag&quot; [src]&#x3D;&quot;baseUrl + c.cca3.toLowerCase() + &#x27;.svg&#x27;&quot;&gt;{{ getName(c) }}
-               &lt;/option&gt;
-             &lt;/select&gt;&#x60;
+  template: &#x60;
+      &lt;select [class]&#x3D;&quot;classes&quot;&gt;
+          &lt;option *ngFor&#x3D;&quot;let c of countries&quot; [value]&#x3D;&quot;getValue(c)&quot;&gt;
+              &lt;img *ngIf&#x3D;&quot;flag&quot; [src]&#x3D;&quot;baseUrl + c.cca3.toLowerCase() + &#x27;.svg&#x27;&quot;&gt;{{ getName(c) }}
+          &lt;/option&gt;
+      &lt;/select&gt;
+  &#x60;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountryPickerComponent implements OnInit {
 
-  @Input() flag &#x3D; false;
-  @Input() setValue &#x3D; &#x27;cca3&#x27;;
-  @Input() setName &#x3D; &#x27;name.common&#x27;;
-  @Input() classes &#x3D; [&#x27;form-control&#x27;, &#x27;form-control-sm&#x27;];
+  @Input() public flag &#x3D; false;
+  @Input() public setValue &#x3D; &#x27;cca3&#x27;;
+  @Input() public setName &#x3D; &#x27;name.common&#x27;;
+  @Input() public classes &#x3D; [&#x27;form-control&#x27;, &#x27;form-control-sm&#x27;];
 
   public countries: ICountry[] &#x3D; [];
   public baseUrl: string;
 
-  constructor(private countryPickerService: CountryPickerService) {
-    this.baseUrl &#x3D; countryPickerService.getBaseUrl() + &#x27;data/&#x27;;
+  constructor(
+    private _countryPickerService: CountryPickerService,
+    private _cdr: ChangeDetectorRef,
+  ) {
+    this.baseUrl &#x3D; _countryPickerService.getBaseUrl() + &#x27;data/&#x27;;
   }
 
-  public ngOnInit() {
-    this.countryPickerService.getCountries().subscribe(countries &#x3D;&gt; {
-      this.countries &#x3D; countries.sort((a: ICountry, b: ICountry) &#x3D;&gt; {
-        let na &#x3D; this.getName(a);
-        let nb &#x3D; this.getName(b);
-        if (na &gt; nb) {
-          return 1;
-        }
-        if (na &lt; nb) {
-          return -1;
-        }
-        return 0;
+  public ngOnInit(): void {
+    this._countryPickerService.getCountries()
+      .subscribe(countries &#x3D;&gt; {
+        this.countries &#x3D; countries.sort((a: ICountry, b: ICountry) &#x3D;&gt; {
+          let na &#x3D; this.getName(a);
+          let nb &#x3D; this.getName(b);
+          if (na &gt; nb) {
+            return 1;
+          }
+          if (na &lt; nb) {
+            return -1;
+          }
+          return 0;
+        });
+        this._cdr.markForCheck();
       });
-    });
   }
 
-  public getValue(obj: ICountry) {
+  public getValue(obj: ICountry): string {
     return this.setValue.split(&#x27;.&#x27;).reduce((o, i) &#x3D;&gt; o[i], obj);
   }
 
-  public getName(obj: ICountry) {
+  public getName(obj: ICountry): string {
     return this.setName.split(&#x27;.&#x27;).reduce((o, i) &#x3D;&gt; o[i], obj);
   }
 }
@@ -668,7 +694,7 @@ export class CountryPickerComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><select [class]="classes">               <option *ngFor="let c of countries" [value]="getValue(c)">                 <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + \'.svg\'">{{ getName(c) }}               </option>             </select></div>'
+        var COMPONENT_TEMPLATE = '<div><select [class]="classes">    <option *ngFor="let c of countries" [value]="getValue(c)">        <img *ngIf="flag" [src]="baseUrl + c.cca3.toLowerCase() + \'.svg\'">{{ getName(c) }}    </option></select></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app'},{'name': 'CountryPickerComponent', 'selector': 'country-picker'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CountryPickerComponent'};

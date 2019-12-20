@@ -73,13 +73,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/CountryPickerModule.html" data-type="entity-link">CountryPickerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-CountryPickerModule-83329f456c6c6750f6695d3cfed0995c"' : 'data-target="#xs-components-links-module-CountryPickerModule-83329f456c6c6750f6695d3cfed0995c"' }>
+                                            'data-target="#components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' : 'data-target="#xs-components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-CountryPickerModule-83329f456c6c6750f6695d3cfed0995c"' :
-                                            'id="xs-components-links-module-CountryPickerModule-83329f456c6c6750f6695d3cfed0995c"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' :
+                                            'id="xs-components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' }>
                                             <li class="link">
                                                 <a href="components/CountryPickerComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">CountryPickerComponent</a>

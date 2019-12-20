@@ -75,18 +75,18 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#baseUrl">baseUrl</a>
+                                <a href="#_baseUrl">_baseUrl</a>
                             </li>
                             <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#data">data</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#_data">_data</a>
                             </li>
                             <li>
-                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#filename">filename</a>
+                                <a href="#_filename">_filename</a>
                             </li>
                         </ul>
                     </td>
@@ -101,6 +101,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_loadData">_loadData</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getBaseUrl">getBaseUrl</a>
                             </li>
@@ -112,10 +116,6 @@
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Static</span>
                                 <a href="#handleError">handleError</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#loadData">loadData</a>
                             </li>
                         </ul>
                     </td>
@@ -135,7 +135,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(config: <a href="../interfaces/CountryPickerConfig.html">CountryPickerConfig</a>, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+<code>constructor(config: <a href="../interfaces/CountryPickerConfig.html">CountryPickerConfig</a>, _http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -170,7 +170,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>http</td>
+                                                        <td>_http</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
@@ -199,6 +199,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="_loadData"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _loadData
+                        </b>
+                        <a href="#_loadData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_loadData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/country-picker.service.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ICountry.html" target="_self" >Observable&lt;ICountry[]&gt;</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getBaseUrl"></a>
                     <span class="name">
                         <b>
@@ -219,8 +260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/country-picker.service.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/country-picker.service.ts:55</a></div>
                 </td>
             </tr>
 
@@ -260,8 +301,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/country-picker.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/country-picker.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -350,47 +391,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="loadData"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            loadData
-                        </b>
-                        <a href="#loadData"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>loadData()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/country-picker.service.ts:54</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/ICountry.html" target="_self" >Observable&lt;ICountry[]&gt;</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section>
     
@@ -401,13 +401,13 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="baseUrl"></a>
+                        <a name="_baseUrl"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Protected</span>
+                                <span class="modifier">Private</span>
                                 <span class="modifier">Readonly</span>
-                            baseUrl</b>
-                            <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                            _baseUrl</b>
+                            <a href="#_baseUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -430,18 +430,18 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="data"></a>
+                        <a name="_data"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Protected</span>
-                            data</b>
-                            <a href="#data"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Private</span>
+                            _data</b>
+                            <a href="#_data"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/ICountry.html" target="_self" >Observable&lt;ICountry[]&gt;</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/ICountry.html" target="_self" >Observable&lt;ICountry[]&gt; | null</a></code>
 
                         </td>
                     </tr>
@@ -463,13 +463,13 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="filename"></a>
+                        <a name="_filename"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Protected</span>
+                                <span class="modifier">Private</span>
                                 <span class="modifier">Readonly</span>
-                            filename</b>
-                            <a href="#filename"><span class="icon ion-ios-link"></span></a>
+                            _filename</b>
+                            <a href="#_filename"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -505,9 +505,9 @@ import { ICountry } from &#x27;./country.interface&#x27;;
 @Injectable()
 export class CountryPickerService {
 
-  protected readonly baseUrl: string;
-  protected readonly filename: string;
-  protected data: Observable&lt;ICountry[]&gt; &#x3D; null;
+  private readonly _baseUrl: string;
+  private readonly _filename: string;
+  private _data: Observable&lt;ICountry[]&gt; | null &#x3D; null;
 
   protected static handleError(error: HttpResponse&lt;any&gt; | any): Observable&lt;any&gt; {
     let errMsg: string;
@@ -527,28 +527,33 @@ export class CountryPickerService {
     return throwError(errMsg);
   }
 
-  constructor(@Inject(COUNTRY_PICKER_CONFIG) config: CountryPickerConfig, private http: HttpClient) {
-    this.baseUrl &#x3D; config.baseUrl;
-    this.filename &#x3D; config.filename;
-    this.data &#x3D; this.loadData();
+  constructor(
+    @Inject(COUNTRY_PICKER_CONFIG) config: CountryPickerConfig,
+    private _http: HttpClient
+  ) {
+    this._baseUrl &#x3D; config.baseUrl;
+    this._filename &#x3D; config.filename;
+    this._data &#x3D; this._loadData();
   }
 
   public getCountries(): Observable&lt;ICountry[]&gt; {
-    return this.data
+    return this._data
       .pipe(
-        map((countries: ICountry[]) &#x3D;&gt; countries.map((country: ICountry) &#x3D;&gt; {
-          country.name.native[0] &#x3D; country.name.native[Object.keys(country.name.native)[0]];
-          return country;
-        }))
+        map((countries: ICountry[]) &#x3D;&gt;
+          countries.map((country: ICountry) &#x3D;&gt; {
+            country.name.native[0] &#x3D; country.name.native[Object.keys(country.name.native)[0]];
+            return country;
+          })
+        )
       );
   }
 
   public getBaseUrl(): string {
-    return this.baseUrl;
+    return this._baseUrl;
   }
 
-  protected loadData(): Observable&lt;ICountry[]&gt; {
-    return this.http.get&lt;ICountry[]&gt;(this.baseUrl + this.filename)
+  private _loadData(): Observable&lt;ICountry[]&gt; {
+    return this._http.get&lt;ICountry[]&gt;(this._baseUrl + this._filename)
       .pipe(
         catchError(CountryPickerService.handleError)
       );
