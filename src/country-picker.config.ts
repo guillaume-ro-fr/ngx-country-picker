@@ -8,6 +8,6 @@ export interface CountryPickerConfig {
 }
 
 export const COUNTRY_PICKER_CONFIG_DEFAULT: CountryPickerConfig = {
-  baseUrl: 'assets/',
+  baseUrl: location.origin + '/assets/',
   filename: 'countries.json',
 };
