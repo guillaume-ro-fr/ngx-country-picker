@@ -1,6 +1,6 @@
 {
   "name": "ngx-country-picker",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/guillaume-ro-fr/ngx-country-picker"
@@ -10,10 +10,7 @@
   },
   "keywords": [
     "angular",
-    "angular6",
-    "angular7",
-    "angular8",
-    "angular9",
+    "angular15",
     "country-picker"
   ],
   "license": "MIT",
@@ -21,20 +18,11 @@
     "url": "https://github.com/guillaume-ro-fr/ngx-country-picker/issues"
   },
   "dependencies": {
-    "world-countries": "^3.0.0"
+    "world-countries": "^4.0.0"
   },
   "peerDependencies": {
-    "@angular/common": ">=6.0.0 <10.0.0",
-    "@angular/core": ">=6.0.0 <10.0.0",
-    "rxjs": "^6.0.0"
-  },
-  "ngPackage": {
-    "dest": "../dist",
-    "lib": {
-      "entryFile": "index.ts"
-    },
-    "whitelistedNonPeerDependencies": [
-      "world-countries"
-    ]
+    "@angular/common": ">=12.0.0 <16.0.0",
+    "@angular/core": ">=12.0.0 <16.0.0",
+    "rxjs": "^7.8.0"
   }
 }

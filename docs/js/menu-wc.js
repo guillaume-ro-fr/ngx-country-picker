@@ -1,6 +1,5 @@
 'use strict';
 
-
 customElements.define('compodoc-menu', class extends HTMLElement {
     constructor() {
         super();
@@ -39,6 +38,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-paper"></span>LICENSE
                             </a>
                         </li>
+                                <li class="link">
+                                    <a href="properties.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-apps"></span>Properties
+                                    </a>
+                                </li>
                     </ul>
                 </li>
                     <li class="chapter modules">
@@ -52,37 +56,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
+                                <a href="modules/CountryPickerModule.html" data-type="entity-link" >CountryPickerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-c4bc255992bf7d2eafa096c04f4c15fb"' : 'data-target="#xs-components-links-module-AppModule-c4bc255992bf7d2eafa096c04f4c15fb"' }>
+                                            'data-target="#components-links-module-CountryPickerModule-95cc764dd9d9c2b4c1237c1b2cf26e571189e311ec443d8c3557d7ed3c9ffcae4375dc3f1b1bc71047543e2dc156f17efd66e3c390a2066886e5e120d2529110"' : 'data-target="#xs-components-links-module-CountryPickerModule-95cc764dd9d9c2b4c1237c1b2cf26e571189e311ec443d8c3557d7ed3c9ffcae4375dc3f1b1bc71047543e2dc156f17efd66e3c390a2066886e5e120d2529110"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-c4bc255992bf7d2eafa096c04f4c15fb"' :
-                                            'id="xs-components-links-module-AppModule-c4bc255992bf7d2eafa096c04f4c15fb"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-CountryPickerModule-95cc764dd9d9c2b4c1237c1b2cf26e571189e311ec443d8c3557d7ed3c9ffcae4375dc3f1b1bc71047543e2dc156f17efd66e3c390a2066886e5e120d2529110"' :
+                                            'id="xs-components-links-module-CountryPickerModule-95cc764dd9d9c2b4c1237c1b2cf26e571189e311ec443d8c3557d7ed3c9ffcae4375dc3f1b1bc71047543e2dc156f17efd66e3c390a2066886e5e120d2529110"' }>
                                             <li class="link">
-                                                <a href="components/AppComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </li>
-                            <li class="link">
-                                <a href="modules/CountryPickerModule.html" data-type="entity-link">CountryPickerModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' : 'data-target="#xs-components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' :
-                                            'id="xs-components-links-module-CountryPickerModule-e7b4ff13f97c8c6a585dc04e1118cfd3"' }>
-                                            <li class="link">
-                                                <a href="components/CountryPickerComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">CountryPickerComponent</a>
+                                                <a href="components/CountryPickerComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CountryPickerComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -98,7 +83,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/CountryPickerService.html" data-type="entity-link">CountryPickerService</a>
+                                    <a href="injectables/CountryPickerService.html" data-type="entity-link" >CountryPickerService</a>
                                 </li>
                             </ul>
                         </li>
@@ -111,10 +96,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/CountryPickerConfig.html" data-type="entity-link">CountryPickerConfig</a>
+                                <a href="interfaces/CountryPickerConfig.html" data-type="entity-link" >CountryPickerConfig</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ICountry.html" data-type="entity-link">ICountry</a>
+                                <a href="interfaces/ICountry.html" data-type="entity-link" >ICountry</a>
                             </li>
                         </ul>
                     </li>

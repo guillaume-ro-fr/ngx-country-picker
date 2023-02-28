@@ -1,18 +1,14 @@
 {
   "name": "ngx-country-picker",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "scripts": {
-    "build": "ng-packagr -p src/package.json",
+    "build": "ng-packagr -p src/ng-package.json",
     "watch": "yarn run build --watch",
     "docs": "yarn run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ngx-country-picker -d docs --hideGenerator",
     "docs:serve": "yarn run docs:build -s",
     "docs:watch": "yarn run docs:build -s -w",
-    "lint": "tslint --project tsconfig.json src/**/*.ts",
-    "lite": "lite-server",
-    "playground:build": "tsc -p playground -w",
-    "playground": "concurrently \"yarn run build\" \"yarn run playground:build\" \"yarn run lite\"",
-    "test": "yarn run build && karma start"
+    "lint": "eslint -c .eslintrc.json src/"
   },
   "repository": {
     "type": "git",
@@ -23,10 +19,7 @@
   },
   "keywords": [
     "angular",
-    "angular6",
-    "angular7",
-    "angular8",
-    "angular9",
+    "angular15",
     "country-picker"
   ],
   "license": "MIT",
@@ -34,42 +27,31 @@
     "url": "https://github.com/guillaume-ro-fr/ngx-country-picker/issues"
   },
   "devDependencies": {
-    "@angular/common": "^6.0.0",
-    "@angular/compiler": "^6.0.0",
-    "@angular/compiler-cli": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "@angular/http": "^6.0.0",
-    "@angular/platform-browser": "^6.0.0",
-    "@angular/platform-browser-dynamic": "^6.0.0",
+    "@angular-eslint/eslint-plugin": "^15.2.1",
+    "@angular-eslint/eslint-plugin-template": "^15.2.1",
+    "@angular/common": "^15.0.0",
+    "@angular/compiler": "^15.0.0",
+    "@angular/compiler-cli": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/platform-browser": "^15.0.0",
+    "@angular/platform-browser-dynamic": "^15.0.0",
     "@compodoc/compodoc": "^1.1.10",
-    "@types/jasmine": "^3.3.16",
-    "@types/node": "~12.6.8",
-    "angular-in-memory-web-api": "^0.6.0",
-    "codelyzer": "~5.1.0",
-    "concurrently": "^4.1.1",
+    "@types/node": "^12.6.8",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "core-js": "^2.5.5",
-    "jasmine-core": "~3.4.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.2.0",
-    "karma-chrome-launcher": "~3.0.0",
-    "karma-cli": "~2.0.0",
-    "karma-coverage-istanbul-reporter": "^2.1.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "lite-server": "^2.5.3",
-    "ng-packagr": "^5.7.1",
-    "node-sass": "^4.12.0",
-    "node-sass-tilde-importer": "^1.0.2",
-    "protractor": "~5.4.1",
-    "rxjs": "^6.0.0",
-    "systemjs": "^2.1.1",
+    "eslint": "^8.35.0",
+    "ng-packagr": "^15.2.2",
+    "rxjs": "^7.8.0",
+    "sass": "^1.58.3",
     "ts-node": "~8.3.0",
-    "tslint": "~5.18.0",
-    "typescript": "~2.7.2 || <2.10.0",
-    "world-countries": "3.0.0",
-    "zone.js": "^0.8.26"
+    "tslib": "^2.5.0",
+    "typescript": "~4.9.5",
+    "world-countries": "^4.0.0",
+    "zone.js": "^0.11.8"
   },
   "engines": {
-    "node": ">=6.0.0"
-  }
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@3.4.1"
 }

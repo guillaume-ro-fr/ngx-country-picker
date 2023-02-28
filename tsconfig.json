@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "target": "es5",
+    "target": "es2020",
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "rootDir": "./src",
     "lib": [
-      "es2015",
+      "es2020",
       "dom"
     ],
     "skipLibCheck": true,

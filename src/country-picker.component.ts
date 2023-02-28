@@ -35,8 +35,8 @@ export class CountryPickerComponent implements OnInit {
     this._countryPickerService.getCountries()
       .subscribe(countries => {
         this.countries = countries.sort((a: ICountry, b: ICountry) => {
-          let na = this.getName(a);
-          let nb = this.getName(b);
+          const na = this.getName(a);
+          const nb = this.getName(b);
           if (na > nb) {
             return 1;
           }

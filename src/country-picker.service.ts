@@ -13,7 +13,8 @@ export class CountryPickerService {
   private readonly _filename: string;
   private _data: Observable<ICountry[]> | null = null;
 
-  protected static handleError(error: HttpResponse<any> | any): Observable<any> {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  protected static handleError(error: HttpResponse<any> | any): Observable<never> {
     let errMsg: string;
     if (error instanceof HttpResponse) {
       if (error.status === 404) {
@@ -28,7 +29,7 @@ export class CountryPickerService {
       errMsg = error.message ? error.message : error.toString();
     }
     console.error(errMsg);
-    return throwError(errMsg);
+    return throwError(() => new Error(errMsg));
   }
 
   constructor(
@@ -59,7 +60,7 @@ export class CountryPickerService {
   private _loadData(): Observable<ICountry[]> {
     return this._http.get<ICountry[]>(this._baseUrl + this._filename)
       .pipe(
-        catchError(CountryPickerService.handleError)
+        catchError(CountryPickerService.handleError),
       );
   }
 }

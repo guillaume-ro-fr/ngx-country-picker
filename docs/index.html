@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -30,13 +31,15 @@
                <div class="content getting-started">
                    <div class="content-data">
 
+<h1 id="deprecated--this-module-is-deprecated-please-create-your-own-service-with-world-countries">DEPRECATED : This module is deprecated. Please create your own service with <a href="https://www.npmjs.com/package/world-countries">world-countries</a></h1>
 <h1 id="ngx-country-picker">ngx-country-picker</h1>
 <p><a href="https://travis-ci.org/guillaume-ro-fr/ngx-country-picker"><img src="https://travis-ci.org/guillaume-ro-fr/ngx-country-picker.svg?branch=master" alt="Build Status" class="img-responsive"></a>
 <a href="https://github.com/guillaume-ro-fr/ngx-country-picker"><img src="https://img.shields.io/github/downloads/guillaume-ro-fr/ngx-country-picker/total.svg" alt="GitHub Downloads All Releases" class="img-responsive"></a>
 <a href="https://www.npmjs.com/package/ngx-country-picker"><img src="https://img.shields.io/npm/dw/ngx-country-picker.svg" alt="npm Downloads All Releases" class="img-responsive"></a>
-<a href="https://www.npmjs.com/package/ngx-country-picker"><img src="https://img.shields.io/npm/v/ngx-country-picker.svg" alt="npm Version" class="img-responsive"></a>
-<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker.svg?type=shield" alt="FOSSA Status" class="img-responsive"></a></p>
-<p>This Angular module provides a service and a component to show a country picker with localizable names, inspired by <a href="https://github.com/Paldom/angular2-countrypicker">Paldom/angular2-countrypicker</a></p>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fguillaume-ro-fr%2Fngx-country-picker.svg?type=shield" alt="FOSSA Status" class="img-responsive"></a>
+<a href="https://angular.io/"><img src="https://img.shields.io/badge/Angular-%3E%3D12%20%3C16-brightgreen" alt="Angular Version" class="img-responsive"></a></p>
+<p>This Angular module provides a service and a component to show a country picker with localizable names, inspired
+by <a href="https://github.com/Paldom/angular2-countrypicker">Paldom/angular2-countrypicker</a></p>
 <h2 id="installation">Installation</h2>
 <p>To install this library, run:</p>
 <div><pre class="line-numbers"><code class="language-bash">$ npm install ngx-country-picker --save</code></pre></div><p>or with Yarn :</p>
@@ -62,30 +65,32 @@ import { CountryPickerModule } from &#39;ngx-country-picker&#39;;
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }</code></pre></div><p>Once CountryPicker is imported, you can use the component in your Angular application:</p>
+export class AppModule {
+}</code></pre></div><p>Once CountryPicker is imported, you can use the component in your Angular application:</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;!-- You can now use the CountryPickerComponent in app.component.html --&gt;
 &lt;h1&gt;
-  {{title}}
+    {{title}}
 &lt;/h1&gt;
-&lt;country-picker [flag]=&quot;false&quot; [setValue]=&quot;&#39;cca3&#39;&quot; [setName]=&quot;&#39;name.common&#39;&quot; [classes]=&quot;[&#39;form-control&#39;]&quot;&gt;&lt;/country-picker&gt;</code></pre></div><p>You can also use the CountryPickerService to import the list of countries in your app:</p>
+&lt;country-picker [flag]=&quot;false&quot; [setValue]=&quot;&#39;cca3&#39;&quot; [setName]=&quot;&#39;name.common&#39;&quot;
+                [classes]=&quot;[&#39;form-control&#39;]&quot;&gt;&lt;/country-picker&gt;</code></pre></div><p>You can also use the CountryPickerService to import the list of countries in your app:</p>
 <div><pre class="line-numbers"><code class="language-typescript">export class YourComponent {
 
   public countries: ICountry[] = [];
 
-  ...
+...
 
   constructor(protected countryPicker: CountryPickerService) {
 
   }
 
-  ...
+...
 
   public ngOnInit(): void {
     this.countryPicker.getCountries()
       .subscribe((countries: ICountry[]) =&gt; this.countries = countries);
   }
 
-  ...
+...
 }</code></pre></div><h2 id="development">Development</h2>
 <p>To generate all <code>*.js</code>, <code>*.d.ts</code> and <code>*.metadata.json</code> files:</p>
 <div><pre class="line-numbers"><code class="language-bash">$ yarn run build</code></pre></div><p>To lint all <code>*.ts</code> files:</p>
@@ -105,14 +110,16 @@ export class AppModule { }</code></pre></div><p>Once CountryPicker is imported, 
 
 
 
-                   
+
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -124,17 +131,27 @@ export class AppModule { }</code></pre></div><p>Once CountryPicker is imported, 
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

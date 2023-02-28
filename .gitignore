@@ -32,5 +32,11 @@ Desktop.ini
 # Build files
 dist/*
 
-# Playground tmp files
-.playground
+# Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
